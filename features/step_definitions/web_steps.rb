@@ -3,7 +3,8 @@ Given(/^I am on the homepage$/) do
 end
 
 Given(/^I enter my details$/) do
-  fill_in "name", with: "Stephen"
+  fill_in "name_1", with: "Stephen"
+  fill_in "name_2", with: "Benja"
 end
 
 When(/^I press "(.*?)"$/) do |arg1|
@@ -17,6 +18,8 @@ end
 Given(/^I position my ships$/) do
   fill_in "ship_1_position", with: "A1"
   fill_in "ship_1_orientation", with: "vertical"
+  fill_in "ship_2_position", with: "A2"
+  fill_in "ship_2_orientation", with: "vertical"
 end
 
 

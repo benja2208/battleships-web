@@ -14,22 +14,23 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   post '/user' do
-    $game.player_1 = Player.new(params[:name])
+    $game.player_1 = Player.new(params[:name_1])
     board = Board.new({cell: Cell, size: 9, number_of_pieces: 1})
     board.fill_all_content(Water.new)
     board.place(Ship.new(size: 1), params[:ship_1_position].upcase.to_sym, params[:ship_1_orientation].to_sym)
     $game.player_1.board = board
 
-    $game.player_2 = Player.new("Computer")
+    $game.player_2 = Player.new(params[:name_2])
     $game.player_2.board = Board.new({cell: Cell, size: 9, number_of_pieces: 1})
     $game.player_2.board.fill_all_content(Water.new)
-    $game.player_2.board.place(Ship.new(size: 1), params[:ship_1_position].upcase.to_sym, params[:ship_1_orientation].to_sym)
+    $game.player_2.board.place(Ship.new(size: 1), params[:ship_2_position].upcase.to_sym, params[:ship_2_orientation].to_sym)
 
     erb :welcome
   end
 
   post '/shoot' do
-    $game.make_move(params[:position].to_sym)
+    $game.make_move(params[:position_1].to_sym)
+
     if $game.over?
       "Game is over"
     else
