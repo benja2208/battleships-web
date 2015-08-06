@@ -24,18 +24,18 @@ class BattleshipsWeb < Sinatra::Base
     $game.player_2.board = Board.new({cell: Cell, size: 9, number_of_pieces: 1})
     $game.player_2.board.fill_all_content(Water.new)
     $game.player_2.board.place(Ship.new(size: 1), params[:ship_1_position].upcase.to_sym, params[:ship_1_orientation].to_sym)
-      $game.player_2
 
     erb :welcome
   end
 
-  post 'shoot' do
-    $game.make_move params[:position].to_sym
-    if $game.over?
-      "Game is over"
-    else
-      "Bad luck"
-    end
+  post '/shoot' do
+    "Hello World"
+    # $game.make_move params[:position].to_sym
+    # if $game.over?
+    #   "Game is over"
+    # else
+    #   "Bad luck"
+    # end
   end
 
 

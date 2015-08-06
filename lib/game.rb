@@ -3,8 +3,8 @@ class Game
   attr_reader :turn
   attr_accessor :player_1, :player_2
 
-  def initialize player_1 = nil , player_2 = nil 
-    @player_1, @player_2, @turn = player_1, player_2, player_1
+  def initialize
+    @turn = player_1
   end
 
   def make_move position
