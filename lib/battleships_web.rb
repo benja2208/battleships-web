@@ -29,13 +29,12 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   post '/shoot' do
-    "Hello World"
-    # $game.make_move params[:position].to_sym
-    # if $game.over?
-    #   "Game is over"
-    # else
-    #   "Bad luck"
-    # end
+    $game.make_move(params[:position].to_sym)
+    if $game.over?
+      "Game is over"
+    else
+      "Bad luck"
+    end
   end
 
 
